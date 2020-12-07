@@ -18,8 +18,8 @@ async function start(){
     }else {
         console.log('Delete Token');
         await bot.telegram.deleteWebhook()
-        console.log('URL: ', `${URL}/bot${process.env.BOT_TOKEN}`);
-        await bot.telegram.setWebhook(`${URL}/bot${process.env.BOT_TOKEN}`);
+        console.log('URL: ', `${process.env.URL}/bot${process.env.BOT_TOKEN}`);
+        await bot.telegram.setWebhook(`${process.env.URL}/bot${process.env.BOT_TOKEN}`);
         bot.startWebhook(`/bot${process.env.BOT_TOKEN}`, null, +process.env.PORT)
     }
 }
