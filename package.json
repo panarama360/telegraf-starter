@@ -19,7 +19,7 @@
     "heroku-prebuild": "npm install",
     "build": "tsc",
     "start": "dotenv -e .env -- node src/app.js",
-    "heroku-postbuild": "prisma generate & prisma migrate up"
+    "heroku-postbuild": "prisma generate & prisma migrate up --experimental"
 
   },
   "devDependencies": {
