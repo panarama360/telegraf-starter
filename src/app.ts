@@ -13,12 +13,12 @@ async function start(){
         container: Container,
         controllers: [MainController],
     });
-    if(process.env.NODE_ENV == 'development')
+    if(process.env.NODE_ENV == 'development') {
         await bot.launch();
-    else {
+    }else {
         await bot.telegram.deleteWebhook()
         await bot.telegram.setWebhook(process.env.URL_HOOK+process.env.SECRET_PATH);
-        await bot.startWebhook(process.env.SECRET_PATH);
+        await bot.startWebhook(process.env.SECRET_PATH, null, +process.env.PORT);
     }
 }
 

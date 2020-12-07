@@ -15,7 +15,12 @@
     "dev:prisma:up": "dotenv -e dev.env -- npx prisma migrate up --experimental",
     "dev:prisma:generate": "dotenv -e dev.env -- npx prisma generate",
     "dev:prisma:studio": "dotenv -e dev.env -- npx prisma studio --experimental",
-    "dev:db": "docker-compose --env-file=.env.dev -f docker-compose.yml up -d"
+    "dev:db": "docker-compose --env-file=.env.dev -f docker-compose.yml up -d",
+    "heroku-prebuild": "npm install",
+    "build": "tsc",
+    "start": "dotenv -e .env -- node src/app.js",
+    "heroku-postbuild": "dotenv -e .env -- npx prisma generate && dotenv -e .env -- npx prisma migrate save --experimental && dotenv -e .env -- npx prisma migrate up --experimental"
+
   },
   "devDependencies": {
     "@prisma/cli": "^2.12.1",
