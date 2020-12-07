@@ -18,7 +18,8 @@
     "dev:db": "docker-compose --env-file=.env.dev -f docker-compose.yml up -d",
     "heroku-prebuild": "npm install",
     "start": "node src/app.js",
-    "heroku-postbuild": "tsc & prisma generate & prisma migrate up --experimental"
+    "postinstall": "tsc",
+    "heroku-postbuild": "prisma generate & prisma migrate up --experimental"
 
   },
   "devDependencies": {
